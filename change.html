@@ -13,6 +13,8 @@ var lat=-33.8665433;
 var lng=151.1956316;
 var rad=500;
 
+getLocation();
+
 function initialize() {
   var pyrmont = new google.maps.LatLng(lat, lng);
 
@@ -59,7 +61,7 @@ function getLocation()
     {
     navigator.geolocation.getCurrentPosition(showPosition);
     }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  else{alarm("Geolocation is not supported by this browser.");}
   }
   
  function showPosition(position)

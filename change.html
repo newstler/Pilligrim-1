@@ -12,9 +12,11 @@ var infowindow;
 var lat=-33.8665433;
 var lng=151.1956316;
 var rad=500;
+var interval=5000;
 
-getLocation();
-
+periodicallyGetLocation();
+ alert('1');
+ 
 function initialize() {
   var pyrmont = new google.maps.LatLng(lat, lng);
 
@@ -53,15 +55,22 @@ function createMarker(place) {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
   });
+
+}
+
+function periodicallyGetLocation(){
+setInterval(function(){
+  getLocation()}, interval);
 }
 
 function getLocation()
+
   {
   if (navigator.geolocation)
     {
     navigator.geolocation.getCurrentPosition(showPosition);
     }
-  else{alarm("Geolocation is not supported by this browser.");}
+  else{alert("Geolocation is not supported by this browser.");}
   }
   
  function showPosition(position)
@@ -88,5 +97,6 @@ var request = {
   types: ['store']
 };
       </pre>
+	  </div>
   </body>
 </html>
